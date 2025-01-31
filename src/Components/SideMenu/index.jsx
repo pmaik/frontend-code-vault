@@ -1,8 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SIDE_MENU_LIST } from "../../Constants";
 
 const SideMenu = () => {
+    const location = useLocation();
+    const pathname = location?.pathname?.split("/").slice(2).join("/");
+    const currentPath = pathname.replace(/-/g, " ");
+
     return (
         <div className="w-1/6 p-5 border-r-4 border-gray-600 bg-gray-300">
             <p className="text-3xl font-bold border-b-4 border-gray-600">
@@ -20,19 +24,24 @@ const SideMenu = () => {
                         </Link>
                         <ol className="pl-5">
                             {item.list.map((val) => (
-                                <li
+                                <Link
                                     key={val}
-                                    className="p-3 w-60 rounded-lg hover:bg-slate-400 transition-colors"
+                                    to={`${item.type.toLowerCase()}/${val
+                                        .toLowerCase()
+                                        .replace(/ /g, "-")}`}
                                 >
-                                    <Link
-                                        to={`${item.type.toLowerCase()}/${val
-                                            .toLowerCase()
-                                            .replace(/ /g, "-")}`}
-                                        className="text-xl font-bold"
+                                    <li
+                                        className={`p-3 w-60 cursor-pointer rounded-lg hover:bg-zinc-400 transition-colors ${
+                                            val.toLowerCase() === currentPath
+                                                ? "bg-teal-500"
+                                                : ""
+                                        }`}
                                     >
-                                        {val}
-                                    </Link>
-                                </li>
+                                        <span className="text-xl font-bold">
+                                            {val}
+                                        </span>
+                                    </li>
+                                </Link>
                             ))}
                         </ol>
                     </li>
