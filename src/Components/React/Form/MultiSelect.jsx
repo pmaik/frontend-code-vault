@@ -1,12 +1,15 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import Chip from "@mui/material/Chip";
+import {
+    FormControl,
+    Select,
+    MenuItem,
+    Box,
+    Chip,
+    InputLabel,
+    OutlinedInput,
+    FormHelperText,
+} from "@mui/material";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -27,7 +30,7 @@ function getStyles(name, personName, theme) {
     };
 }
 
-function MultipleSelect({ id, label, itemsList = [], field }) {
+function MultiSelect({ id, label, itemsList = [], field, error }) {
     const theme = useTheme();
 
     const handleChange = (event) => {
@@ -38,7 +41,7 @@ function MultipleSelect({ id, label, itemsList = [], field }) {
     };
 
     return (
-        <FormControl sx={{ width: 500 }}>
+        <FormControl sx={{ width: 500 }} error={!!error}>
             <InputLabel id={id}>{label}</InputLabel>
             <Select
                 {...field}
@@ -66,8 +69,15 @@ function MultipleSelect({ id, label, itemsList = [], field }) {
                     </MenuItem>
                 ))}
             </Select>
+            {error && (
+                <FormHelperText
+                    sx={{ fontSize: "14px", marginLeft: "0px", color: "red" }}
+                >
+                    {error.message}
+                </FormHelperText>
+            )}
         </FormControl>
     );
 }
 
-export default MultipleSelect;
+export default MultiSelect;

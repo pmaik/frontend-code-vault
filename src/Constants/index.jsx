@@ -66,3 +66,27 @@ export const SIDE_MENU_LIST = [
         list: ["React form", "HOC", "React Router", "Memoization", "Caching"],
     },
 ];
+
+export const SKILLS_LIST = [
+    "Data structures",
+    "Algorithms",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "React.js",
+    "Redux",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "Docker",
+    "MongoDb",
+    "MySQL",
+    "Unit testing",
+];
+
+export const HOBBIES = [
+    "Learning new tech stack",
+    "Watching movies",
+    "Playing cricket",
+];
