@@ -59,23 +59,10 @@ export const SIDE_MENU_LIST = [
     },
     {
         type: MENU_SECTION_TYPES.js,
-        list: [
-            "Hoisting",
-            "Closure",
-            "Promise",
-            "Function currying",
-            "Call, apply, Bind",
-        ],
+        list: ["Promise", "Function currying"],
     },
     {
         type: MENU_SECTION_TYPES.react,
-        list: [
-            "Reconciliation",
-            "Hooks",
-            "HOC",
-            "React Router",
-            "Memoization",
-            "Caching",
-        ],
+        list: ["React form", "HOC", "React Router", "Memoization", "Caching"],
     },
 ];

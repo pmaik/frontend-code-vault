@@ -10,6 +10,7 @@ import CssPositions from "../Components/CSS/CssPositions";
 import CssGrid from "../Components/CSS/CssGrid";
 import JavaScript from "../Components/JavaScript";
 import ReactComp from "../Components/React";
+import ReactForm from "../Components/React/Form";
 import { MENU_SECTION_TYPES } from "../Constants";
 
 const router = createBrowserRouter([
@@ -46,6 +47,12 @@ const router = createBrowserRouter([
             {
                 path: MENU_SECTION_TYPES.react.toLocaleLowerCase(),
                 element: <ReactComp />,
+                children: [
+                    {
+                        path: "react-form",
+                        element: <ReactForm />,
+                    },
+                ],
             },
             {
                 path: "*",
