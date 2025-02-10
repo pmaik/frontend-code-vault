@@ -1,4 +1,5 @@
 import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
 import {
     TextField,
@@ -16,6 +17,7 @@ import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import MultiSelect from "./MultiSelect";
 import { HOBBIES, SKILLS_LIST } from "../../../Constants";
+import { formSchema } from "./formSchema";
 
 const helperTextStyles = {
     sx: {
@@ -27,33 +29,16 @@ const helperTextStyles = {
     },
 };
 
-const validateDateOfBirth = (value) => {
-    const selectedDate = dayjs(value);
-
-    if (!selectedDate.isValid()) {
-        return "Invalid date format";
-    }
-
-    if (selectedDate.isAfter(dayjs(), "day")) {
-        return "Date of Birth cannot be in the future";
-    }
-
-    if (selectedDate.isBefore(dayjs().subtract(120, "years"), "day")) {
-        return "Date of Birth cannot be older than 120 years";
-    }
-
-    return true;
-};
-
 function ReactForm() {
     const { control, handleSubmit } = useForm({
+        resolver: zodResolver(formSchema),
         defaultValues: {
             firstName: "",
             lastName: "",
             email: "",
-            age: "",
+            age: 0,
             gender: "",
-            dateOfBirth: dayjs(new Date()),
+            dateOfBirth: null,
             skills: [],
             hobbies: [],
         },
@@ -76,7 +61,6 @@ function ReactForm() {
                     <Controller
                         name="firstName"
                         control={control}
-                        rules={{ required: "First name is required" }}
                         render={({ field, fieldState: { error } }) => (
                             <TextField
                                 id="firstName"
@@ -93,7 +77,6 @@ function ReactForm() {
                     <Controller
                         name="lastName"
                         control={control}
-                        rules={{ required: "Last name is required" }}
                         render={({ field, fieldState: { error } }) => (
                             <TextField
                                 id="lastName"
@@ -110,13 +93,6 @@ function ReactForm() {
                     <Controller
                         name="email"
                         control={control}
-                        rules={{
-                            required: "Email is required",
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: "Invalid email address",
-                            },
-                        }}
                         render={({ field, fieldState: { error } }) => (
                             <TextField
                                 id="email"
@@ -134,17 +110,6 @@ function ReactForm() {
                     <Controller
                         name="age"
                         control={control}
-                        rules={{
-                            required: "Age is required",
-                            min: {
-                                value: 18,
-                                message: "Minimum age should be 18",
-                            },
-                            max: {
-                                value: 60,
-                                message: "Age cannot be more than 60",
-                            },
-                        }}
                         render={({ field, fieldState: { error } }) => (
                             <TextField
                                 id="age"
@@ -162,7 +127,6 @@ function ReactForm() {
                     <Controller
                         name="gender"
                         control={control}
-                        rules={{ required: "Gender is required" }}
                         render={({ field, fieldState: { error } }) => (
                             <FormControl fullWidth error={!!error}>
                                 <InputLabel id="gender">Gender</InputLabel>
@@ -190,16 +154,16 @@ function ReactForm() {
                     <Controller
                         name="dateOfBirth"
                         control={control}
-                        rules={{
-                            required: "Date of Birth is required",
-                            validate: validateDateOfBirth,
-                        }}
                         render={({ field, fieldState: { error } }) => (
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DatePicker
                                     id="dateOfBirth"
                                     label="Date of Birth"
                                     format="DD/MM/YYYY"
+                                    value={
+                                        field.value ? dayjs(field.value) : null
+                                    }
+                                    onChange={(date) => field.onChange(date)}
                                     slotProps={{
                                         textField: {
                                             error: !!error,
@@ -216,7 +180,6 @@ function ReactForm() {
                     <Controller
                         name="skills"
                         control={control}
-                        rules={{ required: "Skills is required" }}
                         render={({ field, fieldState: { error } }) => (
                             <MultiSelect
                                 id="skills"
@@ -231,7 +194,6 @@ function ReactForm() {
                     <Controller
                         name="hobbies"
                         control={control}
-                        rules={{ required: "Hobbies is required" }}
                         defaultValue={[]}
                         render={({
                             field: { onChange, value },
