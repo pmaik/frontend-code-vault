@@ -29,8 +29,15 @@ const helperTextStyles = {
     },
 };
 
+const DUMMY_API = "https://dummyjson.com/users";
+
 function ReactForm() {
-    const { control, handleSubmit } = useForm({
+    const {
+        control,
+        handleSubmit,
+        reset,
+        formState: { isSubmitting },
+    } = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
             firstName: "",
@@ -44,8 +51,22 @@ function ReactForm() {
         },
     });
 
-    const onSubmitForm = (data) => {
-        console.log("data", data);
+    // temporary api call
+    const fetchData = async () => {
+        try {
+            const response = await fetch(DUMMY_API).then((res) => res.json());
+            return response;
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const onSubmitForm = async (data) => {
+        const response = await fetchData();
+        console.log("response", response);
+        if (response) {
+            reset();
+        }
     };
 
     return (
@@ -209,8 +230,9 @@ function ReactForm() {
                                 renderTags={(value, getTagProps) =>
                                     value.map((option, index) => (
                                         <Chip
-                                            label={option}
                                             {...getTagProps({ index })}
+                                            key={`${option}-${index}`}
+                                            label={option}
                                         />
                                     ))
                                 }
@@ -229,14 +251,37 @@ function ReactForm() {
                         )}
                     />
 
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        sx={{ py: 2, fontWeight: "bold", fontSize: "1rem" }}
-                    >
-                        Submit
-                    </Button>
+                    <div className="flex items-center gap-5 ">
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            sx={{
+                                py: 2,
+                                fontWeight: "bold",
+                                fontSize: "1rem",
+                                flexGrow: 1,
+                            }}
+                            disabled={isSubmitting}
+                        >
+                            Submit
+                        </Button>
+
+                        <Button
+                            type="button"
+                            variant="contained"
+                            color="warning"
+                            sx={{
+                                py: 2,
+                                fontWeight: "bold",
+                                fontSize: "1rem",
+                                flexGrow: 1,
+                            }}
+                            onClick={() => reset()}
+                        >
+                            Reset
+                        </Button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -12,6 +12,7 @@ import JavaScript from "../Components/JavaScript";
 import ReactComp from "../Components/React";
 import ReactForm from "../Components/React/Form";
 import { MENU_SECTION_TYPES } from "../Constants";
+import ErrorBoundary from "../Common/ErrorBoundary";
 
 const router = createBrowserRouter([
     {
@@ -68,9 +69,11 @@ const router = createBrowserRouter([
 
 function AppRoutes() {
     return (
-        <Suspense fallback={<Spinner />}>
-            <RouterProvider router={router} />
-        </Suspense>
+        <ErrorBoundary fallback={<h2>Oops! Something went wrong.</h2>}>
+            <Suspense fallback={<Spinner />}>
+                <RouterProvider router={router} />
+            </Suspense>
+        </ErrorBoundary>
     );
 }
 
