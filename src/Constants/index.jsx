@@ -40,21 +40,21 @@ export const SIDE_MENU_LIST = [
     {
         type: MENU_SECTION_TYPES.html,
         list: [
-            "HTML Tags",
+            "Undoable Input",
             "Forms",
-            "Media Elements",
-            "Tables",
-            "HTML Attributes",
+            // "Media Elements",
+            // "Tables",
+            // "HTML Attributes",
         ],
     },
     {
         type: MENU_SECTION_TYPES.css,
         list: [
             "CSS Positions",
-            "FlexBox",
+            // "FlexBox",
             "CSS Grid",
-            "Transitions",
-            "Animations",
+            // "Transitions",
+            // "Animations",
         ],
     },
     {
@@ -63,7 +63,15 @@ export const SIDE_MENU_LIST = [
     },
     {
         type: MENU_SECTION_TYPES.react,
-        list: ["React form", "HOC", "React Router", "Memoization", "Caching"],
+        list: [
+            "React form",
+            "React Fiber",
+            // "HOC",
+            // "React Router",
+            // "Memoization",
+            // "Caching",
+            "Render Props",
+        ],
     },
 ];
 

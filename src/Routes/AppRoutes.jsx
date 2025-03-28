@@ -5,12 +5,15 @@ import Home from "../Common/Home";
 import NotFoundPage from "../Common/NotFoundPage";
 import Spinner from "../Common/Spinner";
 import HTML from "../Components/HTML";
+import UndoableInput from "../Components/React/UndoableInput";
 import CSS from "../Components/CSS";
 import CssPositions from "../Components/CSS/CssPositions";
 import CssGrid from "../Components/CSS/CssGrid";
 import JavaScript from "../Components/JavaScript";
 import ReactComp from "../Components/React";
 import ReactForm from "../Components/React/Form";
+import ReactFiber from "../Components/React/ReactFiber";
+import RenderProps from "../Components/React/RenderProps";
 import { MENU_SECTION_TYPES } from "../Constants";
 import ErrorBoundary from "../Common/ErrorBoundary";
 
@@ -26,6 +29,9 @@ const router = createBrowserRouter([
             {
                 path: MENU_SECTION_TYPES.html.toLocaleLowerCase(),
                 element: <HTML />,
+                children: [
+                    { path: "undoable-input", element: <UndoableInput /> },
+                ],
             },
             {
                 path: MENU_SECTION_TYPES.css.toLocaleLowerCase(),
@@ -52,6 +58,14 @@ const router = createBrowserRouter([
                     {
                         path: "react-form",
                         element: <ReactForm />,
+                    },
+                    {
+                        path: "react-fiber",
+                        element: <ReactFiber />,
+                    },
+                    {
+                        path: "render-props",
+                        element: <RenderProps />,
                     },
                 ],
             },
