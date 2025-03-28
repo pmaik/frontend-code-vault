@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Common/Home";
+import About from "../Components/About";
 import NotFoundPage from "../Common/NotFoundPage";
 import Spinner from "../Common/Spinner";
 import HTML from "../Components/HTML";
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "about",
+                element: <About />,
             },
             {
                 path: MENU_SECTION_TYPES.html.toLocaleLowerCase(),
