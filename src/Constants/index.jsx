@@ -71,6 +71,7 @@ export const SIDE_MENU_LIST = [
             // "Memoization",
             // "Caching",
             "Render Props",
+            "Pagination",
         ],
     },
 ];

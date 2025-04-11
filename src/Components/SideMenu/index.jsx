@@ -31,7 +31,7 @@ const SideMenu = () => {
                                         .replace(/ /g, "-")}`}
                                 >
                                     <li
-                                        className={`p-3 w-60 cursor-pointer rounded-lg hover:bg-zinc-400 transition-colors ${
+                                        className={`p-3 w-60 cursor-pointer rounded hover:bg-teal-500 transition-colors ${
                                             val.toLowerCase() === currentPath
                                                 ? "bg-teal-500"
                                                 : ""

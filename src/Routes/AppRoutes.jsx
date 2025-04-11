@@ -14,6 +14,7 @@ import JavaScript from "../Components/JavaScript";
 import ReactComp from "../Components/React";
 import ReactForm from "../Components/React/Form";
 import ReactFiber from "../Components/React/ReactFiber";
+import ProductComponent from "../Components/React/Pagination";
 import RenderProps from "../Components/React/RenderProps";
 import { MENU_SECTION_TYPES } from "../Constants";
 import ErrorBoundary from "../Common/ErrorBoundary";
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
                     {
                         path: "render-props",
                         element: <RenderProps />,
+                    },
+                    {
+                        path: "pagination",
+                        element: <ProductComponent />,
                     },
                 ],
             },
