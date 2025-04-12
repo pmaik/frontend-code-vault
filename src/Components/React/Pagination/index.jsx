@@ -25,7 +25,10 @@ const ProductComponent = () => {
             </h1>
             <div className="flex flex-col gap-2">
                 {data?.products?.map((product) => (
-                    <div className="flex justify-between gap-10 border-2 border-gray-800 py-3 px-5">
+                    <div
+                        className="flex justify-between gap-10 border-2 border-gray-800 py-3 px-5"
+                        key={product.id}
+                    >
                         <p>{product.title}</p>
                         <p>{product.category}</p>
                         <p>{product.price}</p>
@@ -38,7 +41,7 @@ const ProductComponent = () => {
                 <Pagination
                     pageNo={pageNo}
                     setPageNo={setPageNo}
-                    totalPage={data.total}
+                    totalPage={Math.ceil(data.total / pageSize)}
                     pageSize={pageSize}
                     setPageSize={setPageSize}
                 />
