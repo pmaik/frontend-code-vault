@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
+const MIN = 0;
+const MAX = 100;
 
 const ProgressBar = () => {
-    const [percentage, setPercentage] = useState(0);
+    const [percentage, setPercentage] = useState(MIN);
     const intervalRef = useRef(null);
 
     useEffect(() => {
@@ -23,13 +25,11 @@ const ProgressBar = () => {
 
     return (
         <div className="flex flex-col gap-5 w-2/3">
-            <p className="text-2xl font-bold border-b-2 border-gray-600 text-center ">
-                Progress Bar
-            </p>
+            <p className="text-2xl font-bold text-center ">Progress Bar</p>
 
             <div className="h-7 rounded-xl bg-gray-300 border-2 border-gray-600 relative overflow-hidden ">
                 <span
-                    className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl font-bold ${
+                    className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl font-bold z-50 ${
                         percentage > 49 ? "text-white" : ""
                     }`}
                 >
@@ -38,7 +38,12 @@ const ProgressBar = () => {
 
                 <div
                     className={`bg-green-600 flex items-start h-full`}
-                    style={{ width: `${percentage}%` }}
+                    // style={{ width: `${percentage}%` }}
+                    style={{
+                        transform: `scaleX(${percentage / MAX})`,
+                        transformOrigin: "left",
+                        transition: "transform 0.3s ease",
+                    }}
                 ></div>
             </div>
         </div>
