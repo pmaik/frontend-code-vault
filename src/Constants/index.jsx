@@ -72,6 +72,7 @@ export const SIDE_MENU_LIST = [
             // "Caching",
             "Render Props",
             "Pagination",
+            "Progress Bar",
         ],
     },
 ];
