@@ -74,6 +74,7 @@ export const SIDE_MENU_LIST = [
             "Pagination",
             "Progress Bar",
             "useMemo Polyfill",
+            "useEffect Polyfill",
         ],
     },
 ];

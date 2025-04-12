@@ -18,6 +18,7 @@ import RenderProps from "../Components/React/RenderProps";
 import ProductComponent from "../Components/React/Pagination";
 import ProgressBar from "../Components/React/ProgressBar";
 import UseMemoPolyfill from "../Components/React/UseMemoPolyfill";
+import UseEffectPolyfill from "../Components/React/UseEffectPolyfill";
 import { MENU_SECTION_TYPES } from "../Constants";
 import ErrorBoundary from "../Common/ErrorBoundary";
 
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
                     {
                         path: "usememo-polyfill",
                         element: <UseMemoPolyfill />,
+                    },
+                    {
+                        path: "useeffect-polyfill",
+                        element: <UseEffectPolyfill />,
                     },
                 ],
             },

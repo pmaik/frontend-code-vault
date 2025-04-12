@@ -6,7 +6,7 @@ import SideMenu from "../Components/SideMenu";
 
 const MainLayout = (props) => {
     return (
-        <div className="App">
+        <div className="MainLayout">
             <Header />
             <div className="flex ">
                 <SideMenu />
