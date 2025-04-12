@@ -14,9 +14,10 @@ import JavaScript from "../Components/JavaScript";
 import ReactComp from "../Components/React";
 import ReactForm from "../Components/React/Form";
 import ReactFiber from "../Components/React/ReactFiber";
+import RenderProps from "../Components/React/RenderProps";
 import ProductComponent from "../Components/React/Pagination";
 import ProgressBar from "../Components/React/ProgressBar";
-import RenderProps from "../Components/React/RenderProps";
+import UseMemoPolyfill from "../Components/React/UseMemoPolyfill";
 import { MENU_SECTION_TYPES } from "../Constants";
 import ErrorBoundary from "../Common/ErrorBoundary";
 
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
                     {
                         path: "progress-bar",
                         element: <ProgressBar />,
+                    },
+                    {
+                        path: "usememo-polyfill",
+                        element: <UseMemoPolyfill />,
                     },
                 ],
             },

@@ -44,6 +44,11 @@ const ProgressBar = () => {
                         transformOrigin: "left",
                         transition: "transform 0.3s ease",
                     }}
+                    role="progressbar"
+                    aria-label="Progress Bar"
+                    aria-valuemin={MIN}
+                    aria-valuemax={MAX}
+                    aria-valuenow={percentage}
                 ></div>
             </div>
         </div>

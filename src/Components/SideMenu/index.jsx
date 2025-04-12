@@ -8,8 +8,8 @@ const SideMenu = () => {
     const currentPath = pathname.replace(/-/g, " ");
 
     return (
-        <div className="w-1/6 p-5 border-r-4 border-gray-600 bg-gray-300">
-            <p className="text-3xl font-bold border-b-4 border-gray-600">
+        <div className=" w-1/6 py-5 px-3 border-r-4 border-gray-600 bg-gray-300 h-screen overflow-y-auto">
+            <p className="text-2xl font-bold border-b-4 border-gray-600">
                 SideMenu
             </p>
 
@@ -18,11 +18,11 @@ const SideMenu = () => {
                     <li key={item.type}>
                         <Link
                             to={item.type.toLowerCase()}
-                            className="inline-block text-2xl font-bold mt-5 mb-2 underline"
+                            className="inline-block text-xl font-bold mt-5 mb-2 underline"
                         >
                             {item.type}
                         </Link>
-                        <ol className="pl-5">
+                        <ol className="">
                             {item.list.map((val) => (
                                 <Link
                                     key={val}
@@ -31,13 +31,13 @@ const SideMenu = () => {
                                         .replace(/ /g, "-")}`}
                                 >
                                     <li
-                                        className={`p-3 w-60 cursor-pointer rounded hover:bg-teal-500 transition-colors ${
+                                        className={`py-2 px-3 cursor-pointer rounded hover:bg-teal-500 transition-colors ${
                                             val.toLowerCase() === currentPath
                                                 ? "bg-teal-500"
                                                 : ""
                                         }`}
                                     >
-                                        <span className="text-xl font-bold">
+                                        <span className="text-base font-bold">
                                             {val}
                                         </span>
                                     </li>

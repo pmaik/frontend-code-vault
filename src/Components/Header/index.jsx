@@ -9,7 +9,7 @@ const Header = () => {
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
-                            `text-3xl font-bold 
+                            `text-2xl font-bold 
                             ${isActive ? "text-amber-600" : "text-white "}`
                         }
                     >
@@ -20,7 +20,7 @@ const Header = () => {
                     <NavLink
                         to="/about"
                         className={({ isActive }) =>
-                            `text-3xl font-bold 
+                            `text-2xl font-bold 
                             ${isActive ? "text-amber-600" : "text-white "}`
                         }
                     >
@@ -31,7 +31,7 @@ const Header = () => {
                     <NavLink
                         to="/contact"
                         className={({ isActive }) =>
-                            `text-3xl font-bold 
+                            `text-2xl font-bold 
                             ${isActive ? "text-amber-600" : "text-white "}`
                         }
                     >
