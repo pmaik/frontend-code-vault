@@ -19,6 +19,7 @@ import ProductComponent from "../Components/React/Pagination";
 import ProgressBar from "../Components/React/ProgressBar";
 import UseMemoPolyfill from "../Components/React/UseMemoPolyfill";
 import UseEffectPolyfill from "../Components/React/UseEffectPolyfill";
+import Stepper from "../Components/React/Stepper";
 import { MENU_SECTION_TYPES } from "../Constants";
 import ErrorBoundary from "../Common/ErrorBoundary";
 
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
                     {
                         path: "useeffect-polyfill",
                         element: <UseEffectPolyfill />,
+                    },
+                    {
+                        path: "stepper",
+                        element: <Stepper />,
                     },
                 ],
             },

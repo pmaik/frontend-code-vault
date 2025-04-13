@@ -8,9 +8,9 @@ const MainLayout = (props) => {
     return (
         <div className="MainLayout">
             <Header />
-            <div className="flex ">
+            <div className="flex">
                 <SideMenu />
-                <main className="p-5 bg-gray-100 w-screen">
+                <main className="p-5 bg-gray-100 w-screen h-screen overflow-y-auto">
                     <Outlet />
                 </main>
             </div>

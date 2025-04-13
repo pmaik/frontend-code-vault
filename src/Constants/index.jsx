@@ -75,6 +75,7 @@ export const SIDE_MENU_LIST = [
             "Progress Bar",
             "useMemo Polyfill",
             "useEffect Polyfill",
+            "Stepper",
         ],
     },
 ];
