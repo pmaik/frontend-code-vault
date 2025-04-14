@@ -20,6 +20,7 @@ import ProgressBar from "../Components/React/ProgressBar";
 import UseMemoPolyfill from "../Components/React/UseMemoPolyfill";
 import UseEffectPolyfill from "../Components/React/UseEffectPolyfill";
 import Stepper from "../Components/React/Stepper";
+import EMICalculator from "../Components/React/EMICalculator";
 import { MENU_SECTION_TYPES } from "../Constants";
 import ErrorBoundary from "../Common/ErrorBoundary";
 
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
                     {
                         path: "stepper",
                         element: <Stepper />,
+                    },
+                    {
+                        path: "emi-calculator",
+                        element: <EMICalculator />,
                     },
                 ],
             },

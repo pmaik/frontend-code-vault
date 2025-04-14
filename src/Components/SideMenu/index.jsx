@@ -8,7 +8,7 @@ const SideMenu = () => {
     const currentPath = pathname.replace(/-/g, " ");
 
     return (
-        <div className=" w-1/6 py-5 px-3 border-r-4 border-gray-600 bg-gray-300 h-screen overflow-y-auto">
+        <div className=" w-1/5 py-5 px-3 border-r-4 border-gray-600 bg-gray-300 h-screen overflow-y-auto">
             <p className="text-2xl font-bold border-b-4 border-gray-600">
                 SideMenu
             </p>
