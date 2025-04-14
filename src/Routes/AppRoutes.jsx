@@ -1,9 +1,10 @@
 import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
-import Home from "../Common/Home";
-import About from "../Components/About";
-import NotFoundPage from "../Common/NotFoundPage";
+import Home from "../Pages/Home";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
+import NotFoundPage from "../Pages/NotFoundPage";
 import { MENU_SECTION_TYPES } from "../Constants";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import Spinner from "../Common/Spinner";
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: "about",
                 element: <About />,
+            },
+            {
+                path: "contact",
+                element: <Contact />,
             },
             {
                 path: MENU_SECTION_TYPES.html.toLocaleLowerCase(),
