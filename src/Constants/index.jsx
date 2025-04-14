@@ -76,6 +76,7 @@ export const SIDE_MENU_LIST = [
             "useMemo Polyfill",
             "useEffect Polyfill",
             "Stepper",
+            "LRU Cache",
             "EMI Calculator",
         ],
     },

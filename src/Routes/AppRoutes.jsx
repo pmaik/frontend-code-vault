@@ -4,6 +4,8 @@ import MainLayout from "../Layouts/MainLayout";
 import Home from "../Common/Home";
 import About from "../Components/About";
 import NotFoundPage from "../Common/NotFoundPage";
+import { MENU_SECTION_TYPES } from "../Constants";
+import ErrorBoundary from "../Common/ErrorBoundary";
 import Spinner from "../Common/Spinner";
 import HTML from "../Components/HTML";
 import UndoableInput from "../Components/HTML/UndoableInput";
@@ -21,8 +23,7 @@ import UseMemoPolyfill from "../Components/React/UseMemoPolyfill";
 import UseEffectPolyfill from "../Components/React/UseEffectPolyfill";
 import Stepper from "../Components/React/Stepper";
 import EMICalculator from "../Components/React/EMICalculator";
-import { MENU_SECTION_TYPES } from "../Constants";
-import ErrorBoundary from "../Common/ErrorBoundary";
+import LRUCache from "../Components/React/LRUCache";
 
 const router = createBrowserRouter([
     {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
                     {
                         path: "stepper",
                         element: <Stepper />,
+                    },
+                    {
+                        path: "lru-cache",
+                        element: <LRUCache />,
                     },
                     {
                         path: "emi-calculator",
