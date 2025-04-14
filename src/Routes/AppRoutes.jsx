@@ -24,6 +24,7 @@ import UseEffectPolyfill from "../Components/React/UseEffectPolyfill";
 import Stepper from "../Components/React/Stepper";
 import EMICalculator from "../Components/React/EMICalculator";
 import LRUCache from "../Components/React/LRUCache";
+import GridLights from "../Components/React/GridLights";
 
 const router = createBrowserRouter([
     {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
                     {
                         path: "lru-cache",
                         element: <LRUCache />,
+                    },
+                    {
+                        path: "grid-lights",
+                        element: <GridLights />,
                     },
                     {
                         path: "emi-calculator",

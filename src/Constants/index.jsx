@@ -78,6 +78,7 @@ export const SIDE_MENU_LIST = [
             "Stepper",
             "LRU Cache",
             "EMI Calculator",
+            "Grid Lights",
         ],
     },
 ];

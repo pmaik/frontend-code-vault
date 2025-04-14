@@ -71,7 +71,7 @@ function ReactForm() {
 
     return (
         <div className="flex flex-col justify-start items-start">
-            <p className="text-2xl text-slate-800 font-bold mt-10 underline ">
+            <p className="text-2xl text-slate-800 font-bold underline ">
                 React Form
             </p>
             <div className="pt-5 min-w-[500px] ">

@@ -1,12 +1,16 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 function ReactComp() {
+    const location = useLocation();
+
     return (
         <div className="flex flex-col items-center justify-center">
-            <h1 className="text-2xl font-bold text-gray-800 mb-5 underline">
-                Welcome to my React page
-            </h1>
+            {location.pathname === "/react" && (
+                <h1 className="text-2xl font-bold text-gray-800 mb-5 underline">
+                    Welcome to my React page
+                </h1>
+            )}
             <Outlet />
         </div>
     );
